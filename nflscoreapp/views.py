@@ -27,7 +27,7 @@ def create(request):
     touchdowns = form.cleaned_data['touchdowns']
     jardas = form.cleaned_data['jardas']
     recepcoes = form.cleaned_data['recepcoes']
-    form.cleaned_data['resultado'] = classificacao(vitorias, touchdowns, jardas, recepcoes)    
+    form.instance.resultado = classificacao(vitorias, touchdowns, jardas, recepcoes)    
 
     if form.is_valid():
         form.save()
