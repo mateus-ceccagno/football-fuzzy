@@ -70,47 +70,6 @@
           </i>
           <div class="card-body">
             <table id="tabela" class="table table-dark w-100">
-              <tbody class="table-group-divider">
-                <tr>
-                  <td><img class="word" src="{% static '/images/S.jpg' %}"></td>
-                  <td onclick="window.location='\\view';">Isac<img class="photo"
-                      src="{% static '/images/player1.png' %}"></td>
-                  <td>Alex<img class="photo" src="{% static '/images/player2.png' %}"></td>
-                  <td>Paul<img class="photo" src="{% static '/images/player3.png' %}"></td>
-                  <td>John<img class="photo" src="{% static '/images/player4.png' %}"></td>
-                </tr>
-                <tr>
-                  <td><img class="word" src="{% static '/images/A.jpg' %}"></td>
-                  <td>Lennon<img class="photo" src="{% static '/images/player5.png' %}"></td>
-                </tr>
-                <tr>
-                  <td><img class="word" src="{% static '/images/B.jpg' %}"></td>
-                  <td>Paul<img class="photo" src="{% static '/images/player3.png' %}"></td>
-                  <td>Alex<img class="photo" src="{% static '/images/player2.png' %}"></td>
-                  <td>Isac<img class="photo" src="{% static '/images/player1.png' %}"></td>
-                  <td>Lennon<img class="photo" src="{% static '/images/player5.png' %}"></td>
-                  <td>Alex<img class="photo" src="{% static '/images/player2.png' %}"></td>
-                  <td>Paul<img class="photo" src="{% static '/images/player3.png' %}"></td>
-                  <td>Isac<img class="photo" src="{% static '/images/player1.png' %}"></td>
-                </tr>
-                <tr>
-                  <td><img class="word" src="{% static '/images/C.jpg' %}"></td>
-                  <td>John<img class="photo" src="{% static '/images/player4.png' %}"></td>
-                  <td>Paul<img class="photo" src="{% static '/images/player3.png' %}"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section id="ranking" class="pt-5">
-        <div class="card text-bg-dark border-secondary p-3">
-          <i class="text-center">
-            <h5>Classificação</h5>
-          </i>
-          <div class="card-body">
-            <table id="tabela" class="table table-dark w-100">
               <thead>
                 <th></th>
               </thead>
@@ -118,10 +77,10 @@
                 <tr>
                   <td><img class="word" src="{% static '/images/S.jpg' %}"></td>
                   {% for db in dbs %}
-                  {% if db.resultado < 1 and db.resultado >= 0.8 %}
+                  {% if db.resultado >= 6.5 %}
                   <td onclick="window.location='\\view\\{{db.id}}';">
                     <span>{{db.nome}}</span>
-                    <img class="photo" src="{% static '/images/player1.png' %}">
+                    <img class="photo" src="{% static '/images/profile-photo.jpeg' %}">
                   </td>
                   {% endif %}
                   {% endfor %}
@@ -129,10 +88,10 @@
                 <tr>
                   <td><img class="word" src="{% static '/images/A.jpg' %}"></td>
                   {% for db in dbs %}
-                  {% if db.resultado < 0.8 and db.resultado >= 0.6 %}
+                  {% if db.resultado >= 5.5 and db.resultado < 6.5 %}
                   <td onclick="window.location='\\view\\{{db.id}}';">
                     <span>{{db.nome}}</span>
-                    <img class="photo" src="{% static '/images/player1.png' %}">
+                    <img class="photo" src="{% static '/images/profile-photo.jpeg' %}">
                   </td>
                   {% endif %}
                   {% endfor %}
@@ -140,10 +99,10 @@
                 <tr>
                   <td><img class="word" src="{% static '/images/B.jpg' %}"></td>
                   {% for db in dbs %}
-                  {% if db.resultado < 0.6 and db.resultado >= 0.4 %}
+                  {% if db.resultado >= 3.5 and db.resultado < 5.5 %}
                   <td onclick="window.location='\\view\\{{db.id}}';">
                     <span>{{db.nome}}</span>
-                    <img class="photo" src="{% static '/images/player1.png' %}">
+                    <img class="photo" src="{% static '/images/profile-photo.jpeg' %}">
                   </td>
                   {% endif %}
                   {% endfor %}
@@ -151,10 +110,10 @@
                 <tr>
                   <td><img class="word" src="{% static '/images/C.jpg' %}"></td>
                   {% for db in dbs %}
-                  {% if db.resultado < 0.4 and db.resultado >= 0.2 %}
+                  {% if db.resultado >= 1.5 and db.resultado < 3.5 %}
                   <td onclick="window.location='\\view\\{{db.id}}';">
                     <span>{{db.nome}}</span>
-                    <img class="photo" src="{% static '/images/player1.png' %}">
+                    <img class="photo" src="{% static '/images/profile-photo.jpeg' %}">
                   </td>
                   {% endif %}
                   {% endfor %}
@@ -162,10 +121,10 @@
                 <tr>
                   <td><img class="word" src="{% static '/images/D.jpg' %}"></td>
                   {% for db in dbs %}
-                  {% if db.resultado < 0.2 %}
+                  {% if db.resultado < 1.5 %}
                   <td onclick="window.location='\\view\\{{db.id}}';">
                     <span>{{db.nome}}</span>
-                    <img class="photo" src="{% static '/images/player1.png' %}">
+                    <img class="photo" src="{% static '/images/profile-photo.jpeg' %}">
                   </td>
                   {% endif %}
                   {% endfor %}
