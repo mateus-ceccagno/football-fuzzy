@@ -246,7 +246,7 @@ def inicializaVariaveis():
                                 rule104,rule105,rule106,rule107,rule108,rule109,rule110,rule111,rule112,rule113,rule114,rule115,rule116,rule117,rule118
                                 ,rule119,rule120,rule121,rule122,rule123,rule124,rule125,rule126,rule127,rule128,rule129,rule130,rule131,rule132,
                                 rule133,rule134,rule135,rule136,rule137,rule138,rule139,rule140,rule141,rule142,rule143,rule144])
-    SE = ctrl.ControlSystemSimulation(SE_ctrl)
+    return ctrl.ControlSystemSimulation(SE_ctrl)
 
 SE = inicializaVariaveis()
 
