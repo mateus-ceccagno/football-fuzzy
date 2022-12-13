@@ -15,12 +15,12 @@ def inicializaVariaveis():
     recepcoes = ctrl.Antecedent(x_recepcoes, 'Recepções')
     resultado = ctrl.Consequent(x_resultado, 'Resultado')
 
-    vitorias['Pouco'] = fuzz.zmf(x_vitorias, 3,5)
-    vitorias['Intermediario'] = fuzz.trapmf(x_vitorias, [3, 5, 9, 11])
+    vitorias['Pouco'] = fuzz.zmf(x_vitorias, 6,8)
+    vitorias['Intermediario'] = fuzz.trapmf(x_vitorias, [6, 8, 9, 11])
     vitorias['Excelente'] = fuzz.smf(x_vitorias, 9,11)
 
-    touchdowns['Pouco'] = fuzz.zmf(x_touchdowns, 2, 4)
-    touchdowns['Intermediario'] = fuzz.trapmf(x_touchdowns, [2, 4, 7, 10])
+    touchdowns['Pouco'] = fuzz.zmf(x_touchdowns, 3, 5)
+    touchdowns['Intermediario'] = fuzz.trapmf(x_touchdowns, [3, 5, 7, 10])
     touchdowns['Excelente'] = fuzz.smf(x_touchdowns, 6, 10)
 
     jardas['Pouco'] = fuzz.zmf(x_jardas, 400, 500)
@@ -38,6 +38,7 @@ def inicializaVariaveis():
     resultado['Top 50'] = fuzz.trapmf(x_resultado, [3, 4, 5, 6])
     resultado['Top 20'] = fuzz.trapmf(x_resultado, [5, 6, 7, 8])
     resultado['Top 10'] = fuzz.smf(x_resultado,7, 8)
+
 
 
     rule1 = ctrl.Rule(vitorias['Pouco'] & touchdowns['Pouco'] & jardas['Pouco'] & recepcoes['Pouco'], resultado['Desclassificado'])         #OK
@@ -144,26 +145,26 @@ def inicializaVariaveis():
     rule76 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Pouco'] & jardas['Excelente'] & recepcoes['Excelente'], resultado['Desclassificado'])          #OK
 
     rule77 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Intermediario'] & recepcoes['Intermediario'], resultado['Desclassificado']) #OK
-    rule78 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Bom'] & recepcoes['Intermediario'], resultado['Desclassificado'])
-    rule79 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Excelente'] & recepcoes['Intermediario'], resultado['Top 100'])
+    rule78 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Bom'] & recepcoes['Intermediario'], resultado['Desclassificado']) # ok--
+    rule79 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Excelente'] & recepcoes['Intermediario'], resultado['Top 100']) #ok--
 
     rule80 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Intermediario'] & recepcoes['Bom'], resultado['Desclassificado']) #OK
-    rule81 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Bom'] & recepcoes['Bom'], resultado['Desclassificado'])
-    rule82 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Excelente'] & recepcoes['Bom'], resultado['Top 50'])
+    rule81 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Bom'] & recepcoes['Bom'], resultado['Desclassificado']) #OK--
+    rule82 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Excelente'] & recepcoes['Bom'], resultado['Top 50']) #OK--
 
     rule83 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Intermediario'] & recepcoes['Excelente'], resultado['Desclassificado']) #OK
-    rule84 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Bom'] & recepcoes['Excelente'], resultado['Desclassificado'])
-    rule85 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Excelente'] & recepcoes['Excelente'], resultado['Top 50'])
+    rule84 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Bom'] & recepcoes['Excelente'], resultado['Desclassificado']) #OK--
+    rule85 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Intermediario'] & jardas['Excelente'] & recepcoes['Excelente'], resultado['Top 50']) #OK--
 
-    rule86 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Bom'] & recepcoes['Bom'], resultado['Desclassificado'])
+    rule86 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Bom'] & recepcoes['Bom'], resultado['Top 100']) #OK--
     rule87 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Intermediario'] & recepcoes['Bom'], resultado['Desclassificado']) #OK
-    rule88 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Excelente'] & recepcoes['Bom'], resultado['Top 50'])
+    rule88 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Excelente'] & recepcoes['Bom'], resultado['Top 50']) #OK--
 
-    rule89 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Bom'] & recepcoes['Intermediario'], resultado['Desclassificado'])
-    rule90 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Bom'] & recepcoes['Excelente'], resultado['Desclassificado'])
+    rule89 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Bom'] & recepcoes['Intermediario'], resultado['Top 20']) #OK--------------------------------
+    rule90 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Bom'] & recepcoes['Excelente'], resultado['Top 50']) #OK--
 
-    rule91 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Excelente'] & recepcoes['Intermediario'], resultado['Top 20'])
-    rule92 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Excelente'] & recepcoes['Excelente'], resultado['Top 10'])
+    rule91 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Excelente'] & recepcoes['Intermediario'], resultado['Top 20']) #OK--
+    rule92 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Excelente'] & recepcoes['Excelente'], resultado['Top 20']) #OK--
 
     rule93 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Intermediario'] & recepcoes['Excelente'], resultado['Desclassificado'])    #OK
     rule94 = ctrl.Rule(vitorias['Intermediario'] & touchdowns['Excelente'] & jardas['Intermediario'] & recepcoes['Intermediario'], resultado['Desclassificado'])#OK
@@ -205,28 +206,28 @@ def inicializaVariaveis():
 
     rule121 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Pouco']          & jardas['Excelente']     & recepcoes['Intermediario'], resultado['Desclassificado'])   #OK
     rule122 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Pouco']          & jardas['Excelente']     & recepcoes['Bom'], resultado['Desclassificado'])              #OK
-    rule123 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Pouco']          & jardas['Excelente']     & recepcoes['Excelente'], resultado['Desclassificado'])      
+    rule123 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Pouco']          & jardas['Excelente']     & recepcoes['Excelente'], resultado['Desclassificado'])      #OK--
 
     rule124 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Intermediario'] & recepcoes['Intermediario'], resultado['Desclassificado'])  #OK
-    rule125 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Bom']           & recepcoes['Intermediario'], resultado['Desclassificado'])
-    rule126 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Excelente']     & recepcoes['Intermediario'], resultado['Desclassificado'])
+    rule125 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Bom']           & recepcoes['Intermediario'], resultado['Top 100']) #OK--
+    rule126 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Excelente']     & recepcoes['Intermediario'], resultado['Top 20']) #OK--
 
     rule127 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Intermediario'] & recepcoes['Bom'], resultado['Desclassificado'])    #OK
-    rule128 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Bom']           & recepcoes['Bom'], resultado['Desclassificado'])
-    rule129 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Excelente']     & recepcoes['Bom'], resultado['Top 50'])             #OK
+    rule128 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Bom']           & recepcoes['Bom'], resultado['Top 100']) #OK--
+    rule129 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Excelente']     & recepcoes['Bom'], resultado['Top 20'])             #OK
 
     rule130 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Intermediario'] & recepcoes['Excelente'], resultado['Desclassificado']) #OK
-    rule131 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Bom']           & recepcoes['Excelente'], resultado['Top 100'])
+    rule131 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Bom']           & recepcoes['Excelente'], resultado['Top 50']) #OK--
     rule132 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Intermediario']  & jardas['Excelente']     & recepcoes['Excelente'], resultado['Top 20'])           #ok
 
     rule133 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Bom']           & recepcoes['Bom'], resultado['Top 50']) #OK
     rule134 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Intermediario'] & recepcoes['Bom'], resultado['Desclassificado'])  #OK
-    rule135 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Excelente']     & recepcoes['Bom'], resultado['Top 50'])           #OK
+    rule135 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Excelente']     & recepcoes['Bom'], resultado['Top 10'])           #OK
 
     rule136 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Bom']           & recepcoes['Intermediario'], resultado['Top 100']) #ok
     rule137 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Bom']           & recepcoes['Excelente'], resultado['Top 50'])      #ok
 
-    rule138 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Excelente']     & recepcoes['Intermediario'], resultado['Top 50'])       #OK
+    rule138 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Excelente']     & recepcoes['Intermediario'], resultado['Top 20'])       #OK
     rule139 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Excelente']     & recepcoes['Excelente'], resultado['Top 10'])           #OK
 
     rule140 = ctrl.Rule(vitorias['Excelente'] & touchdowns['Excelente']      & jardas['Intermediario'] & recepcoes['Excelente'], resultado['Desclassificado']) #OK
@@ -245,7 +246,7 @@ def inicializaVariaveis():
                                 rule104,rule105,rule106,rule107,rule108,rule109,rule110,rule111,rule112,rule113,rule114,rule115,rule116,rule117,rule118
                                 ,rule119,rule120,rule121,rule122,rule123,rule124,rule125,rule126,rule127,rule128,rule129,rule130,rule131,rule132,
                                 rule133,rule134,rule135,rule136,rule137,rule138,rule139,rule140,rule141,rule142,rule143,rule144])
-    return ctrl.ControlSystemSimulation(SE_ctrl)
+    SE = ctrl.ControlSystemSimulation(SE_ctrl)
 
 SE = inicializaVariaveis()
 
